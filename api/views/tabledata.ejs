@@ -1,0 +1,57 @@
+  <div class="container-sm mx-auto" style="z-index:5">
+    <div class="row mb-2" style="position: sticky; top: 75px; z-index: 10" >
+      <div class="col-sm-6">
+        <h5 class="h5 text-black"><b><%= titlepage %></b></h5>
+      </div>     
+      <div class="col-sm-6">
+        <ul class="nav" style="
+              font-size: 15px;
+              text-align: center;
+              padding: 2px;
+              height: auto;
+              float: right;
+              margin-right: 10px;
+              font-weight: bold;
+              margin-top: 5px;
+              margin-left: 10px;
+            ">
+          <li class="dropdown" style="z-index:10">
+            <a href="#" class="dropdown-toggle text-dark" style="text-decoration: none" data-bs-toggle="dropdown">Rows per page <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <% links.forEach(link=> { %>
+              <li>
+                <a class="text-danger" style="text-decoration: none" href="<%= link.url %>"><%= link.row %></a>
+              </li>
+              <% }); %>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="table-responsive" style="height:500px;overflow-y:auto">
+      <table class="table table-bordered table-striped table-hover" style="margin:auto">
+        <thead class="table-primary"   style="position: sticky; top: 0px;z-index:5">
+          <tr>
+            <% tableheader.forEach(header=> { %>
+            <th scope="col" class="text-center"><%= header %></th>
+            <% }); %>
+          </tr>
+        </thead >
+        <tbody>
+          <% for ( var i = startpage; i < endpage  ; i++ ) { %>
+          <tr class="table-secondary">
+            <th scope="row"><%=i+1 %></th>
+            <% for(var j=0;j<keys.length;j++) { %>
+              <td><%=viewresult[i][keys[j]] %></td>
+              <% } %>
+              <td class="text-center"><button class="btn btn-primary rounded"><a class="text-white" style="text-decoration:none" href=<%= currentpage + '/viewrow/?rowpage=' + rowinpage + '&page=' + pagenow + '&rowindex=' + (i+1) + '&id=' + viewresult[i].id%>> View </a></button></td>
+            
+          </tr>
+          <% } %>
+  
+        </tbody>
+  
+      </table>
+    </div>
+
+  </div>

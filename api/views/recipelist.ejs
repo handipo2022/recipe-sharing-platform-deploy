@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Recipe List</title>
+  </head>
+  <body class="bg-white">
+    <%- include('navbar',{page}); -%>
+    <div class="<%= (message=='') ? 'invisible' : 'visible' %> text-end">
+      <p class="text-black mx-4">
+        Welcome user ,<%= message %><a
+          class="text-decoration-none text-black mx-3 badge border border-primary"
+          href="/signout"
+          >Signout</a
+        >
+      </p>
+    </div>
+
+    <form
+      action="/recipelist"
+      method="post"
+      id="filterForm"
+      class="container-sm mx-auto mt-2 text-center mb-3"
+      style="width: 500px; margin-top: 100px"
+    >
+      <div class="row">
+        <div class="col-sm-3">
+          <select
+            id="filterCategory"
+            name="filterCategory"
+            class="form-select border border-primary"
+            aria-label="filter category"
+            onchange="setFilterCategory()"
+          >
+            <option value="postdate">Post date</option>
+            <option value="chefname">Chef name</option>
+            <option value="title">Title</option>
+          </select>
+        </div>
+
+        <div class="col-sm-5">
+          <input id="searchInput" name="searchInput" class="form-control border border-primary" />
+        </div>
+        <div class="col-sm-4">
+          <button
+            type="submit"
+            data-mdb-button-init
+            data-mdb-ripple-init
+            class="btn btn-primary btn-block"
+            onclick="setFilterURL()"
+          >
+            Filter recipe
+          </button>
+        </div>
+      </div>
+    </form>
+
+    <%-
+    include('tabledata',{titlepage,currentpage,startpage,endpage,viewresult,rowinpage,keys,tableheader,links,pagenow});
+    -%> <%- include('pagination',{currentpage,viewresult,rowinpage,pagenow});
+    -%>
+
+    <script>
+      var filterCategory = document.getElementById("filterCategory");
+      var searchInput = document.getElementById("searchInput");
+      var filterForm = document.getElementById("filterForm");
+
+      function setFilterCategory() {
+        if (filterCategory.value == "postdate") {
+          searchInput.type = "date";
+        } else {
+          searchInput.type = "text";
+        }
+      }
+      function setFilterURL() {
+        filterForm.action = `/recipelist/?rowpage=5&filterby=${filterCategory.value}&searchvalue=${searchInput.value}`;
+      }
+    </script>
+  </body>
+</html>

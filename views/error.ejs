@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Error</title>
+  </head>
+  <body  class="bg-white">
+    <%- include('navbar',{page}); -%>
+    <div class="<%= (message=='') ? 'invisible' : 'visible' %> text-end">
+      <p class="text-black mx-4">
+        Welcome user ,<%= message %><a
+          class="text-decoration-none text-danger mx-3 badge border border-primary"
+          href="/signout"
+          >Signout</a
+        >
+      </p>
+    </div>
+    <h3 class="h2 text-center mb-5">Recipe Sharing Application</h3>
+    <p class="text-black text-center" style="font-size:20px"><b>Oopps.... error : <%= error%> </b></p>
+    
+  </body>
+</html>

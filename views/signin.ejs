@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sign in</title>
+  </head>
+  <body class="bg-white">
+    <%- include('navbar',{page}); -%>
+
+    <form
+      action="/signin/password"
+      method="post"
+      class="container-sm mx-auto mt-4"
+      style="width: 500px; margin-top: 100px"
+    >
+      <!-- Username input -->
+      <div data-mdb-input-init class="form-outline mb-4">
+        <label class="form-label" for="email">Username</label>
+        <input type="text" id="username" name="username" class="form-control border border-primary" />
+      </div>
+
+      <!-- Password input -->
+      <div data-mdb-input-init class="form-outline mb-4">
+        <label class="form-label" for="password">Password</label>
+        <input
+          type="password"
+          id="password"
+          name="password"
+          class="form-control border border-primary"
+        />
+      </div>
+      <!-- Submit button -->
+      <div data-mdb-input-init class="form-outline mb-4">
+        <button
+          type="submit"
+          data-mdb-button-init
+          data-mdb-ripple-init
+          class="btn btn-primary btn-block mb-4"
+          style="width: 475px"
+        >
+          Sign in
+        </button>
+      </div>
+      <p class="text-center"><%= message %></p>
+      <!-- Register buttons -->
+      <div class="text-center">
+        <p>Not a member? <a class="text-black" href="/signup">Sign up</a></p>
+      </div>
+    </form>
+  </body>
+</html>

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Navbar</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body class="bg-white">
+    <nav
+      class="navbar navbar-expand-sm navbar-dark bg-primary"
+      style="position: sticky; top: 0px; z-index: 15"
+    >
+      <div class="container-fluid">
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <!-- Dropdown -->
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                data-bs-toggle="dropdown"
+                href="#"
+                id="userMenuLink"
+                role="button"
+                aria-expanded="false"
+              >
+                User
+              </a>
+              <ul
+                class="dropdown-menu bg-primary"
+                aria-labelledby="userMenuLink"
+              >
+                <li>
+                  <a
+                    class="<%= (page=='home') ? 'dropdown-item active bg-transparent' : 'dropdown-item disabled' %>"
+                    href="/signin"
+                    >Sign in</a
+                  >
+                </li>
+                <li><hr class="dropdown-divider" /></li>
+                <li>
+                  <a
+                    class="<%= (page=='home') ? 'dropdown-item active bg-transparent' : 'dropdown-item disabled' %>"
+                    href="/signup"
+                    >Sign up</a
+                  >
+                </li>
+                <li><hr class="dropdown-divider" /></li>
+                <li>
+                  <a
+                    class="<%= (page=='signin'  || page=="recipepost" || page=="recipelist" || page=="recipeview" || page=='about') ? 'dropdown-item active bg-transparent' : 'dropdown-item disabled' %>"
+                    href="/signout"
+                    >Sign out</a
+                  >
+                </li>
+              </ul>
+            </li>
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                data-bs-toggle="dropdown"
+                id="recipeMenuLink"
+                role="button"
+                aria-expanded="false"
+              >
+                Recipe
+              </a>
+              <ul
+                class="dropdown-menu bg-primary"
+                aria-labelledby="recipeMenuLink"
+              >
+                <li>
+                  <a
+                    class="<%= (page=='signin' || page=="recipepost" || page=="recipelist" || page=="recipeview" || page=='about'  || page=='error') ? 'dropdown-item active bg-transparent' : 'dropdown-item disabled' %>"
+                    href="/recipepost"
+                    >Post New Recipe</a
+                  >
+                </li>
+                <li><hr class="dropdown-divider" /></li>
+                <li>
+                  <a
+                    class="<%= (page=='signin' || page=="recipepost" || page=="recipelist" || page=="recipeview"  || page=='about' || page=='error') ? 'dropdown-item active bg-transparent' : 'dropdown-item disabled' %>"
+                    href="/recipelist/?rowpage=5"
+                    >View Recipe list</a
+                  >
+                </li>
+              </ul>
+            </li>
+        
+            <li class="nav-item">
+              <a  class="<%= (page=='signin' || page=="recipepost" || page=="recipelist" || page=="recipeview"  || page=="about" || page=='error') ? 'nav-link bg-transparent' : 'nav-link disabled' %>" href="/about">About</a>
+            </li>
+          </ul>
+        </div> 
+      </div>
+    </nav>
+    <script
+      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+      integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

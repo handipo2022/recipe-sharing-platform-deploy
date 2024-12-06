@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home</title>
+  </head>
+  <body class="bg-white">
+    <%- include('navbar',{page}); -%>
+    <div class="<%= (message=='') ? 'invisible' : 'visible' %> text-end">
+      <p class="text-black mx-4">
+        Welcome user ,<%= message %><a
+          class="text-decoration-none text-danger mx-3 badge border border-primary"
+          href="/signout"
+          >Signout</a
+        >
+      </p>
+    </div>
+    <div class="text-center">
+      <h3 class="h3 fw-bolder">Recipe Sharing Application</h3>
+      <img
+        class="img-fluid img-thumbnail rounded mx-auto d-block"
+        src="/public/images/vecteezy_pie-recipe-vector-illustration_100708.svg"
+        alt="vecteezy_recipe"
+      />
+    </div>
+  </body>
+</html>

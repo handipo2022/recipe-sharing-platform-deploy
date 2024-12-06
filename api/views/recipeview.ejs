@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%= titlepage  %></title>
+  </head>
+  <body class="bg-white">
+    <%- include('navbar',{page}); -%>
+    <div class="<%= (message=='') ? 'invisible' : 'visible' %> text-end">
+      <p class="text-black mx-4">
+        Welcome user ,<%= message %><a
+          class="text-decoration-none text-danger mx-3 badge border border-primary"
+          href="/signout"
+          >Signout</a
+        >
+      </p>
+    </div>
+
+    <form     
+      class="container-sm mx-auto mt-4"
+      style="width: 500px; margin-top: 100px"
+    >
+      <!-- Recipe label -->
+      <div data-mdb-input-init class="form-outline mb-4">
+        <label class="form-label" for="title">Recipe title :</label>
+        <input class="form-control border border-primary" for="titleRecipe" value="<%= titleRecipe %>" readonly>
+      </div>
+
+      <!-- Publish date -->
+      <div data-mdb-input-init class="form-outline mb-4">
+        <label class="form-label" for="publish">Post date</label>
+        <input class="form-control border border-primary" for="postDateRecipe" value="<%= postDateRecipe %>" readonly>
+      </div>
+
+      <!-- Description -->
+      <div data-mdb-input-init class="form-outline mb-4">
+        <label class="form-label" for="description">Recipe detail</label>
+        <textarea
+          id="description"
+          name="description"
+          class="form-control border border-primary"
+          rows="5"
+          readonly         
+        /><%= descriptionRecipe %></textarea>
+      </div>
+
+      <!-- View photo -->
+        <div data-mdb-input-init class="form-outline mb-4">
+          <label class="form-label" for="photo">Photo</label>
+          <div data-mdb-input-init class="form-outline mb-4">
+            <img class="img-thumbnail border border-primary" src="data:image/<%= imgContentType %>;base64,<%= imgData %>" alt="<%= imgContentType%> <%= titleRecipe%>">
+          </div>
+          
+        </div>
+  
+      
+    </form>
+
+   
+  
+  </body>
+</html>

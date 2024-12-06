@@ -1,0 +1,9 @@
+    <nav class="nav" style=" font-size: 15px;text-align: center;padding: 2px;height: auto;float: right;margin-right: 10px;font-weight: bold;margin-top: 5px;margin-left: 10px;">
+      <ul class="pagination">
+        <li class="page-item"><a class="page-link" href=<%= currentpage + '/gotopage/?page=' + (pagenow-1 )%>>Previous</a></li>
+        <% for(let t=0;t<(viewresult.length/rowinpage);t++){%>
+          <li class="page-item"><a class="page-link" href=<%= currentpage + '/gotopage/?page=' + (t+1) %>><%= t+1 %></a></li>
+        <% } %>
+        <li class="page-item"><a class="page-link" href=<%= currentpage + '/gotopage/?page=' + (pagenow + 1) %>>Next</a></li>
+      </ul>
+    </nav>

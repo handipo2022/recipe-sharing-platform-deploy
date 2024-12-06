@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sign up</title>
+  </head>
+  <body class="bg-white">
+    <%- include('navbar',{page}); -%>
+    <form
+      action="/signup"
+      method="post"
+      class="container-sm mx-auto mt-4"
+      style="width: 500px"
+    >
+      <!-- Firstname input -->
+      <div data-mdb-input-init class="form-outline mb-4">
+        <label class="form-label" for="firstname">First name</label>
+        <input
+          id="firstname"
+          name="firstname"
+          type="text"
+          autocomplete="firstname"
+          required
+          class="form-control border border-primary"
+        />
+      </div>
+      <!-- Lastname input -->
+      <div data-mdb-input-init class="form-outline mb-4">
+        <label class="form-label" for="lastname">Last name</label>
+        <input
+          id="lastname"
+          name="lastname"
+          type="text"
+          autocomplete="lastname"
+          required
+          class="form-control border border-primary"
+        />
+      </div>
+
+      <!-- Username input -->
+      <div data-mdb-input-init class="form-outline mb-4">
+        <label class="form-label" for="username">Username</label>
+        <input type="text" id="username" name="username" class="form-control border border-primary" />
+      </div>
+
+      <!-- Password input -->
+      <div data-mdb-input-init class="form-outline mb-4">
+        <label class="form-label" for="password">Password</label>
+        <input
+          type="password"
+          id="password"
+          name="password"
+          class="form-control border border-primary"
+        />
+      </div>
+
+      <!-- Submit button -->
+      <div data-mdb-input-init class="form-outline mb-4">
+        <button
+          type="submit"
+          data-mdb-button-init
+          data-mdb-ripple-init
+          class="btn btn-primary btn-block mb-4"
+          style="width: 475px"
+        >
+          Sign up
+        </button>
+      </div>
+      <p class="text-center"> <%=message%></p>
+      <!-- Register buttons -->
+      <div class="text-center">
+        <p>
+          Already have account ?
+          <a class="text-black" href="/signin">Sign in</a>
+        </p>
+      </div>
+    </form>
+  </body>
+</html>

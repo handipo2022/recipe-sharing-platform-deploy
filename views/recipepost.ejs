@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Recipe Post</title>
+  </head>
+  <body class="bg-white">
+    <%- include('navbar',{page}); -%>
+    <div class="<%= (message=='') ? 'invisible' : 'visible' %> text-end">
+      <p class="text-black mx-4">
+        Welcome user ,<%= message %><a
+          class="text-decoration-none text-danger mx-3 badge border border-primary"
+          href="/signout"
+          >Signout</a
+        >
+      </p>
+    </div>
+    <form
+      action="/recipepost"
+      method="post"
+      enctype="multipart/form-data"
+      class="container-sm mx-auto mt-4"
+      style="width: 500px; margin-top: 100px"
+    >
+      <!-- Recipe label -->
+      <div data-mdb-input-init class="form-outline mb-4">
+        <label class="form-label" for="title">Recipe title : </label>
+        <input type="text" id="title" name="title" class="form-control border border-primary" />
+      </div>
+
+      <!-- Publish date -->
+      <div data-mdb-input-init class="form-outline mb-4">
+        <label class="form-label" for="publish">Post date</label>
+        <input type="date" id="date" name="date" class="form-control border border-primary" />
+      </div>
+
+      <!-- Description -->
+      <div data-mdb-input-init class="form-outline mb-4">
+        <label class="form-label" for="description">Recipe detail</label>
+        <textarea
+          id="description"
+          name="description"
+          class="form-control border border-primary"
+          rows="5"
+         
+        /></textarea>
+      </div>
+
+      <!-- Upload Photo -->
+        <div data-mdb-input-init class="form-outline mb-4">
+          <label class="form-label" for="photo">Upload Photo</label>
+          <input type="file" id="photo" name="photo" class="form-control border border-primary" />
+        </div>
+  
+      <!-- Submit button -->
+      <div data-mdb-input-init class="form-outline mb-4">
+        <button
+          type="submit"
+          data-mdb-button-init
+          data-mdb-ripple-init
+          class="btn btn-primary btn-block mb-4"
+          style="width: 475px"
+        >
+          Post Recipe
+        </button>
+        <p class="text-center"><%= status %></p>
+      </div>
+    </form>
+  </body>
+</html>
